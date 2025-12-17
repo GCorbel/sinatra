@@ -4,6 +4,7 @@
 require 'rack'
 require 'tilt'
 require 'rack/protection'
+require 'rack/protection/forwarded_request_methods'
 require 'mustermann'
 require 'mustermann/sinatra'
 require 'mustermann/regular'
