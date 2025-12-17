@@ -22,6 +22,8 @@ module Sinatra
   # The request object. See Rack::Request for more info:
   # https://rubydoc.info/github/rack/rack/main/Rack/Request
   class Request < Rack::Request
+    include Rack::Protection::ForwardedRequestMethods
+
     HEADER_PARAM = /\s*[\w.]+=(?:[\w.]+|"(?:[^"\\]|\\.)*")?\s*/.freeze
     HEADER_VALUE_WITH_PARAMS = %r{(?:(?:\w+|\*)/(?:\w+(?:\.|-|\+)?|\*)*)\s*(?:;#{HEADER_PARAM})*}.freeze
 

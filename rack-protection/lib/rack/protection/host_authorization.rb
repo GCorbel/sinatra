@@ -57,6 +57,7 @@ module Rack
         return true if @all_permitted_hosts.empty?
 
         request = Request.new(env)
+        request.extend(ForwardedRequestMethods)
         origin_host = extract_host(request.host_authority)
         forwarded_host = extract_host(request.forwarded_authority)
 
